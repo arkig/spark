@@ -536,7 +536,7 @@ def launch_cluster(conn, opts, cluster_name):
             block_map["/dev/sd" + chr(ord('s') + i)] = device
 
     # AWS ignores the AMI-specified block device mapping for M3 (see SPARK-3342).
-    if opts.instance_type.startswith('m3.'):
+    if opts.instance_type.startswith('r3.'):
         for i in range(get_num_disks(opts.instance_type)):
             dev = BlockDeviceType()
             dev.ephemeral_name = 'ephemeral%d' % i
